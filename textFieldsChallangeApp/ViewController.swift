@@ -21,31 +21,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        initializeTextFields()
+      
          self.zipCode.delegate = ZipCodeDelegate
          self.cashText.delegate = dollarCash
-        
+            locakableText.delegate = self
     }
     
-    func initializeTextFields(){
-        
-        zipCode.delegate = self
-        zipCode.keyboardType = UIKeyboardType.NumberPad
-       
-        cashText.delegate = self
-        cashText.keyboardType = UIKeyboardType.DecimalPad
-        locakableText.delegate = self
-        locakableText.keyboardType = UIKeyboardType.Default
-        
-    }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         
         var newText: NSString = textField.text!
         
         newText = newText.stringByReplacingCharactersInRange(range, withString: string)
-        
         
         return true
     }
